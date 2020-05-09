@@ -77,6 +77,8 @@ app.use('/admin/categories',categories);
 app.use('/admin/comments',comments);
 
 
-app.listen(4111,()=>{
-    console.log('connected');
+const port = process.env.PORT || 4111;
+
+app.listen(port,()=>{
+    console.log(`listening on port ${port}`);
 });
