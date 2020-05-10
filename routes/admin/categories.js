@@ -17,17 +17,28 @@ router.get('/',(req,res)=>{
 
 router.post('/create',(req,res)=>{
 
-    const newCategory = Category({
-        name : req.body.name,
-        user : req.user.id
+    Category.findOne({name:req.body.name}).then(category=>{
+        if(!category){
+
+            const newCategory = Category({
+                name : req.body.name,
+                user : req.user.id
+            });
+        
+            newCategory.save().then(savedCategory=>{
+                req.flash('success_message','Category was created successfully');
+                res.redirect('/admin/categories/');
+            }).catch(err=>{
+                console.log('there are problem',err);
+            });
+        }else{
+            req.flash('error_message','Category exist already, Use that one');
+            res.redirect('/admin/categories');
+        }
+
     });
 
-    newCategory.save().then(savedCategory=>{
-        req.flash('success_message','Category was created successfully');
-        res.redirect('/admin/categories/');
-    }).catch(err=>{
-        console.log('there are problem',err);
-    });
+
 });
 
 router.delete('/:id',(req,res)=>{
