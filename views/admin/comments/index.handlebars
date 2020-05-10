@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Owner</th>
+      <th scope="col">Message</th>
       <th scope="col">Status</th>
       <th scope="col">Date</th>
     </tr>
@@ -13,7 +13,8 @@
     {{#each comments}}
     <tr>
       <th>{{_id}}</th>
-      <td>{{user.firstName}}</td>
+      {{!-- <td>{{user.firstName}}</td> --}}
+      <td>{{body}}</td>
       <td><input data-id="{{_id}}" type="checkbox" {{#if approveComment}} checked {{/if}} name="approveComment"></td>
       <td>{{generateDate date 'LLL'}}</td>
       <td>

@@ -30,8 +30,8 @@ router.post('/',(req,res)=>{
         post.save().then(savedPost=>{
             newComment.save().then(savedComment=>{
 
-                req.flash('success_message',`Your Comment will be reviewd soon`);
-                res.redirect(`/post/${post.id}`);
+                req.flash('success_message',`Your Comment was submitted`);
+                res.redirect(`/post/${post.slug}`);
             });
         });
     });
