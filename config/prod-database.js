@@ -1,4 +1,4 @@
 module.exports = {
     
-    mongoDbUrl : porcess.env.MONGODB_URL
+    mongoDbUrl : process.env.MONGODB_URL
 }
