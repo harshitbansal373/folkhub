@@ -20,6 +20,9 @@
     <link href="/css/home/blog-post.css" rel="stylesheet">
     
 
+    <!-- Custom fonts for this template-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
   </head>
 
   <body>
@@ -42,6 +45,19 @@
     <!-- Bootstrap core JavaScript -->
     <script src="/js/jquery/jquery.min.js"></script>
     <script src="/js/jquery/bootstrap.bundle.min.js"></script>
+
+        
+    
+    {{!-- footer manage --}}
+    <script>
+    $(document).ready(function(){
+        if($('body').height() < $(window).height()*0.9){
+          $('footer').css({
+            "position": "fixed", "width": "100%", "bottom": "0"
+          })
+        }
+    })
+    </script>
 
   </body>
 
